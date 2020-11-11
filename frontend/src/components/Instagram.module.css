@@ -1,0 +1,15 @@
+img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.containerUsuarios {
+  display: flex;
+  justify-content: center;
+}
+.usuarios {
+  display: flex;
+  align-items: center;
+}
