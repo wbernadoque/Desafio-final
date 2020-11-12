@@ -2,19 +2,17 @@ import React, { useEffect, useState } from 'react';
 import * as api from '../api/ApiService';
 import css from '../components/Instagram.module.css';
 import { v4 as uuidv4 } from 'uuid';
-import Axios from 'axios';
 
 export default function Instagram() {
   const [allFriends, setAllFriends] = useState([]);
   const [allPosts, setAllPosts] = useState([]);
   const [allComments, setAllComments] = useState([]);
   const [allLikes, setAllLikes] = useState([]);
-  const [comment, setComment] = useState(null);
-  let selectedUser = 'batman';
-  let comentario = '';
-  let postComment = '';
+  const [comentario, setComentario] = useState(null);
+  const [postComment, setPostComment] = useState(null);
+  const [selectedUser, setSelectedUser] = useState('batman');
 
-  const getComemnts = async () => {
+  const getComments = async () => {
     const comments = await api.getAllComments();
     setAllComments(comments);
   };
@@ -38,19 +36,17 @@ export default function Instagram() {
   useEffect(() => {
     getBestFriends();
     getAllPosts();
-    getComemnts();
+    getComments();
     getLikes();
   }, []);
 
-  const handleFriendSelected = (friend) => {
-    selectedUser = friend.target.text;
-  };
   const countLikes = (postId) => {
     let i = 0;
     allLikes.map((like) => {
       if (like.postId === postId) {
         i++;
       }
+      return;
     });
     return i;
   };
@@ -60,6 +56,7 @@ export default function Instagram() {
       if (comment.postId === postId) {
         i++;
       }
+      return;
     });
     return i;
   };
@@ -70,13 +67,16 @@ export default function Instagram() {
         usersLiked += like.user;
         usersLiked += ' \n';
       }
+      return;
     });
     return usersLiked;
   };
 
   const handleChange = (event) => {
-    comentario = event.target.value;
-    postComment = event.target.id;
+    // comentario = event.target.value;
+    // postComment = event.target.id;
+    setComentario(event.target.value);
+    setPostComment(event.target.id);
   };
 
   const handleSubmit = async () => {
@@ -86,10 +86,17 @@ export default function Instagram() {
       postId: postComment,
       user: selectedUser,
     };
-    await api.setComment(comment);
 
-    console.log(comment);
+    await api.setComment(comment);
+    const elements = document.getElementsByName('comentario');
+    elements.forEach((element) => {
+      element.value = '';
+    });
+
+    getComments();
   };
+
+  useEffect(() => {}, [comentario]);
 
   return (
     <div className={css.corpo}>
@@ -116,7 +123,10 @@ export default function Instagram() {
                 <a
                   key={index}
                   className={css.usuarios}
-                  onClick={handleFriendSelected}
+                  onClick={() => {
+                    setSelectedUser(friend);
+                  }}
+                  id={friend}
                 >
                   <img
                     className={css.perfil}
@@ -165,16 +175,18 @@ export default function Instagram() {
                       );
                     }
                   })}
-
-                  <input
-                    placeholder="Comentar..."
-                    type="text"
-                    onChange={handleChange}
-                    id={post.id}
-                  ></input>
-                  <a className="material-icons" onClick={handleSubmit}>
-                    send
-                  </a>
+                  <div className={css.sendComment}>
+                    <input
+                      placeholder="Comentar..."
+                      type="text"
+                      onChange={handleChange}
+                      id={post.id}
+                      name="comentario"
+                    ></input>
+                    <a className="material-icons" onClick={handleSubmit}>
+                      send
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
