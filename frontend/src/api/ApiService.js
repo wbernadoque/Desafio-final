@@ -40,4 +40,6 @@ async function getAllFriends() {
   return friends;
 }
 
+
+
 export { getAllPosts, getAllComments, getAllFriends };

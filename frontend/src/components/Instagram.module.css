@@ -1,4 +1,17 @@
-img {
+
+h3{
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+.perfil{
+  height: 100px;
+  width: 100px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 50%;
+}
+.containerUsuarios img{
   border-radius: 50%;
   height: 50px;
   width: 50px;
@@ -8,8 +21,30 @@ img {
 .containerUsuarios {
   display: flex;
   justify-content: center;
+  
 }
 .usuarios {
   display: flex;
   align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 10px;
+  color: black;
+  padding: 5px;
+}
+
+.usuarios:hover {
+  background-color: darkgrey;
+  border-radius: 5px;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid silver;
+  width: 600px;
+  
+}
+img.picturePost{
+  height: 200px;
 }
