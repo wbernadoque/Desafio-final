@@ -3,6 +3,7 @@ import axios from 'axios';
 const API_POSTS = 'http://localhost:3001/posts';
 const API_COMMENTS = 'http://localhost:3001/comments';
 const API_FRIENDS = 'http://localhost:3001/bestFriends';
+const API_LIKES = 'http://localhost:3001/likes';
 
 async function getAllPosts() {
   const res = await axios.get(API_POSTS);
@@ -39,7 +40,21 @@ async function getAllFriends() {
 
   return friends;
 }
+async function getAllLikes() {
+  const res = await axios.get(API_LIKES);
+  const likes = res.data.map((like) => {
+    return {
+      id: like.id,
+      postId: like.postId,
+      user: like.user,
+    };
+  });
 
+  return likes;
+}
 
+async function setComment(comment) {
+  await axios.post(API_COMMENTS, comment);
+}
 
-export { getAllPosts, getAllComments, getAllFriends };
+export { getAllPosts, getAllComments, getAllFriends, getAllLikes, setComment };
