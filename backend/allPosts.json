@@ -2857,6 +2857,18 @@
       "comment": "Péssimos atores, não gostei.",
       "user": "wonderWoman",
       "postId": "530f1ff4-060c-4e96-b039-f3ac3dea1f01"
+    },
+    {
+      "id": "8bd10376-59ce-4e0d-823f-6edceeeaff9b",
+      "comment": "teste",
+      "postId": "57f1428f-97d0-444b-96fe-6ddc913aed5e",
+      "user": "batman"
+    },
+    {
+      "id": "135391d3-75aa-44d1-9a46-b5f6486ecc97",
+      "comment": "teste",
+      "postId": "57f1428f-97d0-444b-96fe-6ddc913aed5e",
+      "user": "wonderWoman"
     }
   ],
   "likes": [
@@ -4906,5 +4918,8 @@
       "user": "thor"
     }
   ],
-  "bestFriends": ["batman", "wonderWoman"]
+  "bestFriends": [
+    "batman",
+    "wonderWoman"
+  ]
 }

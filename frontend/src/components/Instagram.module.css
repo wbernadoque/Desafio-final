@@ -27,6 +27,13 @@ h3 {
   display: flex;
   align-items: center;
 }
+.like {
+  cursor: pointer;
+  
+}
+.Instagram_icon-message__1kZ82 {
+  border: 1px solid red;
+}
 .likeComments span {
   margin-right: 10px;
 }

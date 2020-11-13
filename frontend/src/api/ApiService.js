@@ -57,4 +57,8 @@ async function setComment(comment) {
   await axios.post(API_COMMENTS, comment);
 }
 
-export { getAllPosts, getAllComments, getAllFriends, getAllLikes, setComment };
+async function setLike(like){
+  await axios.post(API_LIKES,like)
+}
+
+export { getAllPosts, getAllComments, getAllFriends, getAllLikes, setComment,setLike };

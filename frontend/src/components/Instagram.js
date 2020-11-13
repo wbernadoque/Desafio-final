@@ -151,10 +151,9 @@ export default function Instagram() {
                   <span>{post.title}</span>
                 </div>
                 <div className={css.likeComments}>
-                  <i className="material-icons" title={likesUsers(post.id)}>
+                  <i className={`material-icons ${css.like}`} title={likesUsers(post.id)}>
                     favorite_border
                   </i>
-
                   <span>{countLikes(post.id)}</span>
 
                   <i className="material-icons">message</i>
