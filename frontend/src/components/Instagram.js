@@ -10,7 +10,7 @@ export default function Instagram() {
   const [allLikes, setAllLikes] = useState([]);
   const [comentario, setComentario] = useState(null);
   const [postComment, setPostComment] = useState(null);
-  const [selectedUser, setSelectedUser] = useState('batman');
+  const [selectedUser, setSelectedUser] = useState('superman');
 
   const getComments = async () => {
     const comments = await api.getAllComments();
@@ -41,22 +41,13 @@ export default function Instagram() {
   }, []);
 
   const countLikes = (postId) => {
-    let i = 0;
-    allLikes.map((like) => {
-      if (like.postId === postId) {
-        i++;
-      }
-    });
-    return i;
+    const j = allLikes.filter((like) => like.postId === postId);
+
+    return j.length;
   };
   const countComments = (postId) => {
-    let i = 0;
-    allComments.map((comment) => {
-      if (comment.postId === postId) {
-        i++;
-      }
-    });
-    return i;
+    const j = allComments.filter((comment) => comment.postId === postId);
+    return j.length;
   };
   const likesUsers = (postId) => {
     let usersLiked = '';
@@ -109,8 +100,8 @@ export default function Instagram() {
   useEffect(() => {}, [comentario]);
 
   const likeFilter = (post) => {
-    const liked = allLikes.filter((like) => like.postId == post);
-    const userLiked = liked.filter((like) => like.user == selectedUser);
+    const liked = allLikes.filter((like) => like.postId === post);
+    const userLiked = liked.filter((like) => like.user === selectedUser);
     if (userLiked.length > 0) {
       return 'favorite';
     } else {
@@ -118,8 +109,8 @@ export default function Instagram() {
     }
   };
   const handleClick = (post) => {
-    const liked = allLikes.filter((like) => like.postId == post);
-    const userLiked = liked.filter((like) => like.user == selectedUser);
+    const liked = allLikes.filter((like) => like.postId === post);
+    const userLiked = liked.filter((like) => like.user === selectedUser);
 
     if (userLiked.length <= 0) {
       setLike(post);
@@ -140,15 +131,21 @@ export default function Instagram() {
             alt=""
           />
           <div className={css.info}>
-            <span>{allPosts.length} Posts</span>
-            <span>{allComments.length} comentarios</span>
-            <span>{allLikes.length} likes</span>
+            <p>
+              <span>{allPosts.length} </span>Posts
+            </p>
+            <p>
+              <span>{allComments.length} </span>Comentarios
+            </p>
+            <p>
+              <span>{allLikes.length} </span>Likes
+            </p>
           </div>
         </div>
         <div className={css.container}>
-          <h3>Visualizar Timeline com:</h3>
+          <span>Visualizar Timeline com:</span>
           <div className={css.containerUsuarios}>
-            <a
+            <i
               className={
                 selectedUser === 'superman' ? css.usuariosClick : css.usuarios
               }
@@ -163,10 +160,10 @@ export default function Instagram() {
                 alt=""
               />
               superman
-            </a>
+            </i>
             {allFriends.map((friend, index) => {
               return (
-                <a
+                <i
                   key={index}
                   className={
                     selectedUser === friend ? css.usuariosClick : css.usuarios
@@ -182,7 +179,7 @@ export default function Instagram() {
                     alt=""
                   />
                   {friend}
-                </a>
+                </i>
               );
             })}
           </div>
@@ -208,7 +205,7 @@ export default function Instagram() {
                     {allLikes.length > 0 && likeFilter(post.id)}
                   </i>
 
-                  <span>{countLikes(post.id)}</span>
+                  <span>{allLikes.length > 0 && countLikes(post.id)}</span>
 
                   <i className="material-icons">message</i>
                   <span>{countComments(post.id)}</span>
@@ -236,9 +233,9 @@ export default function Instagram() {
                       id={post.id}
                       name="comentario"
                     ></input>
-                    <a className="material-icons" onClick={handleSubmit}>
+                    <i className="material-icons" onClick={handleSubmit}>
                       send
-                    </a>
+                    </i>
                   </div>
                 </div>
               </div>

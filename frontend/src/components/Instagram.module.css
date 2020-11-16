@@ -29,6 +29,14 @@ h3 {
 .perfilUsuario {
   display: flex;
   align-items: center;
+  width: 300px;
+}
+.perfilUsuario p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.perfilUsuario span {
+  font-weight: bold;
 }
 .topoInfo {
   display: flex;
@@ -78,8 +86,8 @@ h3 {
   padding: 20px;
 }
 .perfil {
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
   margin-right: 10px;
   margin-left: 10px;
   border-radius: 50%;
@@ -131,9 +139,14 @@ a {
 .container {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   border: 1px solid silver;
   width: 600px;
-  margin-left: 20px;
+  padding: 10px;
+  align-items: center;
+}
+.container span {
+  font-weight: bold;
 }
 img.picturePost {
   height: 500px;
