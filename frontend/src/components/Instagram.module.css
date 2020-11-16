@@ -3,6 +3,10 @@ h3 {
   font-weight: bold;
   text-align: center;
 }
+.corpo {
+  display: flex;
+  max-width: 720px;
+}
 
 .tolltip {
   position: relative;
@@ -29,7 +33,6 @@ h3 {
 }
 .like {
   cursor: pointer;
-  
 }
 .Instagram_icon-message__1kZ82 {
   border: 1px solid red;
