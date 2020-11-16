@@ -2857,18 +2857,6 @@
       "comment": "Péssimos atores, não gostei.",
       "user": "wonderWoman",
       "postId": "530f1ff4-060c-4e96-b039-f3ac3dea1f01"
-    },
-    {
-      "id": "8bd10376-59ce-4e0d-823f-6edceeeaff9b",
-      "comment": "teste",
-      "postId": "57f1428f-97d0-444b-96fe-6ddc913aed5e",
-      "user": "batman"
-    },
-    {
-      "id": "135391d3-75aa-44d1-9a46-b5f6486ecc97",
-      "comment": "teste",
-      "postId": "57f1428f-97d0-444b-96fe-6ddc913aed5e",
-      "user": "wonderWoman"
     }
   ],
   "likes": [
@@ -2876,11 +2864,6 @@
       "id": "7d070fa3-b6d4-4ebc-8ca9-0567e4f861ed",
       "postId": "57f1428f-97d0-444b-96fe-6ddc913aed5e",
       "user": "antman"
-    },
-    {
-      "id": "19e04b56-4637-4836-bf01-04f518325fef",
-      "postId": "57f1428f-97d0-444b-96fe-6ddc913aed5e",
-      "user": "batman"
     },
     {
       "id": "a2de57d5-f77a-4021-acce-b2c47252de4e",
@@ -2906,11 +2889,6 @@
       "id": "81781c64-195a-4d3d-8407-743ca1161c63",
       "postId": "57f1428f-97d0-444b-96fe-6ddc913aed5e",
       "user": "spiderMan"
-    },
-    {
-      "id": "6eed9b0b-f640-414a-810e-e9db43e4ee76",
-      "postId": "57f1428f-97d0-444b-96fe-6ddc913aed5e",
-      "user": "wonderWoman"
     },
     {
       "id": "4f584455-b317-4c8d-a0eb-e3f536a99460",
@@ -4916,6 +4894,16 @@
       "id": "96aa3b85-11d7-407d-8dc6-993c00f9a0f5",
       "postId": "530f1ff4-060c-4e96-b039-f3ac3dea1f01",
       "user": "thor"
+    },
+    {
+      "id": "4910d9bc-9dc5-4d1b-ad38-ffb8cbc7c41b",
+      "postId": "57f1428f-97d0-444b-96fe-6ddc913aed5e",
+      "user": "batman"
+    },
+    {
+      "id": "5e1a4d17-e598-4983-a8f9-ae72483f2ba4",
+      "postId": "57f1428f-97d0-444b-96fe-6ddc913aed5e",
+      "user": "wonderWoman"
     }
   ],
   "bestFriends": [

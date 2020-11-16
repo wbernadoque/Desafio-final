@@ -46,7 +46,6 @@ export default function Instagram() {
       if (like.postId === postId) {
         i++;
       }
-      return;
     });
     return i;
   };
@@ -56,7 +55,6 @@ export default function Instagram() {
       if (comment.postId === postId) {
         i++;
       }
-      return;
     });
     return i;
   };
@@ -67,7 +65,6 @@ export default function Instagram() {
         usersLiked += like.user;
         usersLiked += ' \n';
       }
-      return;
     });
     return usersLiked;
   };
@@ -95,8 +92,41 @@ export default function Instagram() {
 
     getComments();
   };
+  const setLike = async (post) => {
+    const like = {
+      id: uuidv4(),
+      postId: post,
+      user: selectedUser,
+    };
 
+    await api.setLike(like);
+    getLikes();
+  };
+  const deleteLike = async (likeId) => {
+    await api.deleteLike(likeId[0].id);
+    getLikes();
+  };
   useEffect(() => {}, [comentario]);
+
+  const likeFilter = (post) => {
+    const liked = allLikes.filter((like) => like.postId == post);
+    const userLiked = liked.filter((like) => like.user == selectedUser);
+    if (userLiked.length > 0) {
+      return 'favorite';
+    } else {
+      return 'favorite_border';
+    }
+  };
+  const handleClick = (post) => {
+    const liked = allLikes.filter((like) => like.postId == post);
+    const userLiked = liked.filter((like) => like.user == selectedUser);
+
+    if (userLiked.length <= 0) {
+      setLike(post);
+    } else {
+      deleteLike(userLiked);
+    }
+  };
 
   return (
     <div className={css.corpo}>
@@ -118,11 +148,29 @@ export default function Instagram() {
         <div className={css.container}>
           <h3>Visualizar Timeline com:</h3>
           <div className={css.containerUsuarios}>
+            <a
+              className={
+                selectedUser === 'superman' ? css.usuariosClick : css.usuarios
+              }
+              onClick={() => {
+                setSelectedUser('superman');
+              }}
+              id="superman"
+            >
+              <img
+                className={css.perfil}
+                src={require(`../img/superman.png`)}
+                alt=""
+              />
+              superman
+            </a>
             {allFriends.map((friend, index) => {
               return (
                 <a
                   key={index}
-                  className={css.usuarios}
+                  className={
+                    selectedUser === friend ? css.usuariosClick : css.usuarios
+                  }
                   onClick={() => {
                     setSelectedUser(friend);
                   }}
@@ -151,9 +199,15 @@ export default function Instagram() {
                   <span>{post.title}</span>
                 </div>
                 <div className={css.likeComments}>
-                  <i className={`material-icons ${css.like}`} title={likesUsers(post.id)}>
-                    favorite_border
+                  <i
+                    className={`material-icons ${css.like}`}
+                    title={likesUsers(post.id)}
+                    onClick={() => handleClick(post.id)}
+                  >
+                    {/* favorite_border */}
+                    {allLikes.length > 0 && likeFilter(post.id)}
                   </i>
+
                   <span>{countLikes(post.id)}</span>
 
                   <i className="material-icons">message</i>

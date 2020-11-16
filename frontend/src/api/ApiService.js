@@ -57,8 +57,19 @@ async function setComment(comment) {
   await axios.post(API_COMMENTS, comment);
 }
 
-async function setLike(like){
-  await axios.post(API_LIKES,like)
+async function setLike(like) {
+  await axios.post(API_LIKES, like);
+}
+async function deleteLike(like) {
+  await axios.delete(`${API_LIKES}/${like}`);
 }
 
-export { getAllPosts, getAllComments, getAllFriends, getAllLikes, setComment,setLike };
+export {
+  getAllPosts,
+  getAllComments,
+  getAllFriends,
+  getAllLikes,
+  setComment,
+  setLike,
+  deleteLike,
+};
