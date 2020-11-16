@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import * as api from '../api/ApiService';
 import css from '../components/Instagram.module.css';
 import { v4 as uuidv4 } from 'uuid';
+import Carregamento from './Carregamento';
 
 export default function Instagram() {
   const [allFriends, setAllFriends] = useState([]);
@@ -145,22 +146,6 @@ export default function Instagram() {
         <div className={css.container}>
           <span>Visualizar Timeline com:</span>
           <div className={css.containerUsuarios}>
-            <i
-              className={
-                selectedUser === 'superman' ? css.usuariosClick : css.usuarios
-              }
-              onClick={() => {
-                setSelectedUser('superman');
-              }}
-              id="superman"
-            >
-              <img
-                className={css.perfil}
-                src={require(`../img/superman.png`)}
-                alt=""
-              />
-              superman
-            </i>
             {allFriends.map((friend, index) => {
               return (
                 <i
@@ -184,6 +169,9 @@ export default function Instagram() {
             })}
           </div>
         </div>
+      </div>
+      <div>
+        {allPosts.length <= 0 ? <Carregamento /> : console.log('Carregado')}
       </div>
       <div>
         {allPosts.map((post, index) => {
@@ -243,7 +231,6 @@ export default function Instagram() {
           );
         })}
       </div>
-      <div></div>
     </div>
   );
 }

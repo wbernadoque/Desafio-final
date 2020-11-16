@@ -3,6 +3,9 @@ h3 {
   font-weight: bold;
   text-align: center;
 }
+.sendComment i {
+  cursor: pointer;
+}
 .corpo {
   display: flex;
   max-width: 800px;
@@ -105,12 +108,14 @@ h3 {
 }
 a {
   cursor: pointer;
+  text-decoration: none;
 }
 .sendComment {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
+
 .usuarios {
   display: flex;
   align-items: center;

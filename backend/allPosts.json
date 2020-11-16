@@ -2863,6 +2863,12 @@
       "comment": "bom",
       "postId": "57f1428f-97d0-444b-96fe-6ddc913aed5e",
       "user": "superman"
+    },
+    {
+      "id": "da790f47-8885-4232-aa20-2138def6b3a4",
+      "comment": "Esse Filme é muito bom",
+      "postId": "57f1428f-97d0-444b-96fe-6ddc913aed5e",
+      "user": "wonderWoman"
     }
   ],
   "likes": [
@@ -4902,18 +4908,19 @@
       "user": "thor"
     },
     {
-      "id": "4910d9bc-9dc5-4d1b-ad38-ffb8cbc7c41b",
-      "postId": "57f1428f-97d0-444b-96fe-6ddc913aed5e",
-      "user": "batman"
-    },
-    {
-      "id": "5e1a4d17-e598-4983-a8f9-ae72483f2ba4",
+      "id": "a6b7aa62-f20c-460c-94d6-36c319f6deb6",
       "postId": "57f1428f-97d0-444b-96fe-6ddc913aed5e",
       "user": "wonderWoman"
+    },
+    {
+      "id": "a40fc608-132c-4341-b87e-8aab608eaef8",
+      "postId": "57f1428f-97d0-444b-96fe-6ddc913aed5e",
+      "user": "batman"
     }
   ],
   "bestFriends": [
     "batman",
-    "wonderWoman"
+    "wonderWoman",
+    "superman"
   ]
 }

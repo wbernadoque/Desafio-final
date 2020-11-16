@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+
 import Instagram from './components/Instagram';
 
 export default class App extends Component {
   render() {
-    return <Instagram />;
+    return (
+      <div>
+        <Instagram />
+      </div>
+    );
   }
 }
